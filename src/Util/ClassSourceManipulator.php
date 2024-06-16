@@ -966,7 +966,7 @@ final class ClassSourceManipulator
         /* @legacy Support for nikic/php-parser v4 */
         if (\is_callable([$this->parser, 'getTokens'])) {
             $this->oldTokens = $this->parser->getTokens();
-        } elseif (\is_callable($this->lexer->getTokens(...))) {
+        } elseif (\is_callable([$this->lexer, 'getTokens'])) {
             $this->oldTokens = $this->lexer->getTokens();
         }
 
