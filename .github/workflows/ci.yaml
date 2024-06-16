@@ -16,6 +16,15 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      mongodb:
+        image: mongo:4.4
+        env:
+          MONGO_INITDB_ROOT_USERNAME: test
+          MONGO_INITDB_ROOT_PASSWORD: password
+          MONGO_INITDB_DATABASE: test_document_maker
+        ports:
+          - 27017:27017
     env:
       SYMFONY_VERSION: ${{ matrix.symfony-version }}
       MAKER_ALLOW_DEV_DEPS_IN_APP: ${{ matrix.allow-dev-deps-in-apps }}
