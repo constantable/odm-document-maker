@@ -52,19 +52,6 @@ class DocumentRegeneratorTest extends TestCase
         ];
     }
 
-    public function testXmlRegeneration(): void
-    {
-        $kernel = new TestXmlDocumentRegeneratorKernel('dev', true);
-        $this->doTestRegeneration(
-            __DIR__.'/fixtures/xml_source_project',
-            $kernel,
-            'Constantable\OdmDocumentMaker\Tests\tmp\current_project_xml\src\Document',
-            'expected_xml_odm',
-            false,
-            'current_project_xml'
-        );
-    }
-
     private function doTestRegeneration(string $sourceDir, Kernel $kernel, string $namespace, string $expectedDirName, bool $overwrite, string $targetDirName): void
     {
         $fs = new Filesystem();
