@@ -1,0 +1,18 @@
+services:
+
+  odm_document_maker.doctrine_odm_helper:
+    class: Constantable\OdmDocumentMaker\Doctrine\DoctrineODMHelper
+    arguments: [ '', '@?doctrine_mongodb' ]
+
+  odm_document_maker.document_class_generator:
+    class: Constantable\OdmDocumentMaker\Doctrine\DocumentClassGenerator
+    arguments:
+      - '@maker.generator'
+      - '@odm_document_maker.doctrine_odm_helper'
+
+  # maker
+  odm_document_maker.command.make_document_command:
+    class: Constantable\OdmDocumentMaker\Command\MakeDocumentCommand
+    arguments: [ '@maker.file_manager', '@odm_document_maker.doctrine_odm_helper', null, '@maker.generator','@odm_document_maker.document_class_generator', '@maker.php_compat_util' ]
+    tags: [ maker.command ]
+

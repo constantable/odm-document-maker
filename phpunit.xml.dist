@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+         bootstrap="vendor/autoload.php"
+         failOnRisky="true"
+         failOnWarning="true"
+>
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <env name="TEST_MONGODB_URL" value="mongodb://test:password@127.0.0.1:27017" />
+        <env name="TEST_MONGODB_DB" value="test_document_maker" />
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0"/>
+        <env name="SYMFONY_PHPUNIT_REQUIRE" value="nikic/php-parser:^4.13"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="Project Test Suite">
+            <directory>tests/</directory>
+            <exclude>tests/Maker</exclude>
+            <exclude>tests/fixtures</exclude>
+            <exclude>tests/tmp</exclude>
+        </testsuite>
+        <testsuite name="Maker Test Suite">
+            <directory>tests/Maker</directory>
+        </testsuite>
+    </testsuites>
+
+    <coverage>
+        <include>
+            <directory>./src/</directory>
+        </include>
+    </coverage>
+</phpunit>

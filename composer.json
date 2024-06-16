@@ -1,0 +1,38 @@
+{
+    "name": "constantable/odm-document-maker",
+    "description": "The ODM Document Maker helps you create Doctrine ODM Documents",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "minimum-stability": "dev",
+    "keywords": ["maker", "generator", "document generator"],
+    "require": {
+		"php": ">=8.0",
+        "nikic/php-parser": "^4.11|^5.0",
+        "doctrine/mongodb-odm-bundle": "^4.4",
+        "symfony/maker-bundle": "^1.44",
+        "symfony/config": "^5.4.7|^6.0|^7.0",
+        "symfony/console": "^5.4.7|^6.0|^7.0",
+        "symfony/dependency-injection": "^5.4.7|^6.0|^7.0",
+        "symfony/deprecation-contracts": "^2.2|^3",
+        "symfony/filesystem": "^5.4.7|^6.0|^7.0",
+        "symfony/finder": "^5.4.7|^6.0|^7.0",
+        "symfony/framework-bundle": "^5.4.7|^6.0|^7.0",
+        "symfony/http-kernel": "^5.4.7|^6.0|^7.0",
+        "symfony/process": "^5.4.7|^6.0|^7.0",
+        "symfony/yaml": "^5.4.7|^6.0|^7.0"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^5.4|^6.0|^7.0",
+        "twig/twig": "^2.0|^3.0"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": { "Constantable\\OdmDocumentMaker\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Constantable\\OdmDocumentMaker\\Tests\\": "tests/" }
+    }
+}
