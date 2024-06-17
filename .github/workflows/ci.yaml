@@ -1,4 +1,4 @@
-name: "CI jobs"
+name: "CI"
 
 on:
   pull_request:
