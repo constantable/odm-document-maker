@@ -174,5 +174,4 @@ final class Validator
 
         return $className;
     }
-
 }
