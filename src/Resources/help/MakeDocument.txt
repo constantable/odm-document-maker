@@ -14,7 +14,7 @@ for the properties of existing documents:
 
 <info>php %command.full_name% --regenerate</info>
 
-You can also *overwrite* any existing methods:
+To *overwrite* any existing methods:
 
 <info>php %command.full_name% --regenerate --overwrite</info>
 

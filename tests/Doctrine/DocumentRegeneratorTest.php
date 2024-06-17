@@ -167,64 +167,6 @@ class TestDocumentRegeneratorKernel extends Kernel
     }
 }
 
-class TestXmlDocumentRegeneratorKernel extends Kernel
-{
-    use MicroKernelTrait;
-
-    public function registerBundles(): array
-    {
-        return [
-            new FrameworkBundle(),
-            new DoctrineMongoDBBundle(),
-        ];
-    }
-
-    protected function configureRoutes(RouteCollectionBuilder $routes): void
-    {
-    }
-
-    protected function configureContainer(ContainerBuilder $c, LoaderInterface $loader): void
-    {
-        $c->loadFromExtension('framework', [
-            'secret' => 123,
-            'router' => [
-                'utf8' => true,
-            ],
-            'http_method_override' => false,
-        ]);
-
-        $c->prependExtensionConfig('doctrine_mongodb', [
-            'auto_generate_proxy_classes' => true,
-            'auto_generate_hydrator_classes' => true,
-            'auto_generate_persistent_collection_classes' => true,
-            'connections' => [
-                'default' => [
-                    'server' => 'mongodb://localhost:27017',
-                    'options' => [],
-                ],
-            ],
-            'document_managers' => [
-                'default' => [
-                    'mappings' => [
-                        'DocumentRegenerator' => [
-                            'is_bundle' => false,
-                            'type' => 'xml',
-                            'dir' => '%kernel.project_dir%/config/doctrine_mongodb',
-                            'prefix' => 'Constantable\OdmDocumentMaker\Tests\tmp\current_project_xml\src\Document',
-                            'alias' => 'DocumentRegeneratorApp',
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-    }
-
-    public function getProjectDir(): string
-    {
-        return __DIR__.'/../tmp/current_project_xml';
-    }
-}
-
 class AllDocumentsButTraitsIterator extends \RecursiveFilterIterator
 {
     public function accept(): bool
