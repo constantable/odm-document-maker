@@ -46,3 +46,7 @@ You can create an EmbeddedDocument class:
 ```bash
 php bin/console constantable:make-document --embedded
 ```
+
+## About
+
+**Used by** [Timequip](https://timequip.com) — a task management platform.
